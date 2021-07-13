@@ -1,0 +1,11 @@
+def maxSubArraySum(self,a,size):
+        ##Your code here
+        maxx = -999999
+        max_till_now = 0
+        for i in range(size):
+            max_till_now += a[i]
+            if(max_till_now>maxx):
+                maxx = max_till_now
+            if(max_till_now<0):
+                max_till_now = 0
+        return maxx
