@@ -1,0 +1,10 @@
+ def doUnion(self,a,n,b,m):
+        
+        #code here
+        union = {}
+        for i in range(n):
+            union[a[i]] = union.get(a[i],0) + 1
+        for j in range(m):
+            union[b[j]] = union.get(b[j],0) + 1
+            
+        return len(union)
