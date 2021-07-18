@@ -1,0 +1,20 @@
+def maximumSumSubarray (self,K,Arr,N):
+        # code here 
+        max_sum = -9999
+        temp_sum = 0
+        i = 0
+        j = 0
+        while(j<N):
+            temp_sum += Arr[j]
+            if((j-i+1) == K):
+                if(max_sum < temp_sum):
+                    max_sum = temp_sum
+                    
+                temp_sum = temp_sum - Arr[i]
+                i += 1
+                j+=1
+            
+            elif(j-i+1 < K):
+                j += 1
+            
+        return max_sum
