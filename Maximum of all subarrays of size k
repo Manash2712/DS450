@@ -1,0 +1,28 @@
+def max_of_subarrays(self,arr,n,k):
+        i = 0
+        j = 0
+        temp = []
+        ans = []
+        while(j<n):
+            while((len(temp)>0)and(temp[-1] < arr[j])):
+                temp.pop()
+            temp.append(arr[j])
+            '''try:
+                if(arr[j]>temp[0]):
+                    temp = []
+                    temp.append(arr[j])
+                else:
+                    temp.append(arr[j])
+            except:
+                temp.append(arr[j])'''
+            if(j-i+1 == k):
+                ans.append(temp[0])
+                if(arr[i] == temp[0]):
+                    temp.pop(0)
+                i += 1
+                j += 1
+                
+            elif((j-i+1) < k):
+                j += 1
+                
+        return ans
