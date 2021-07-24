@@ -1,0 +1,26 @@
+def longestKSubstr(self, s, k):
+        i = 0
+        j = 0
+        dct = {}
+        n = len(s)
+        maxlen = -1
+        while(j<n):
+            dct[s[j]] = dct.get(s[j],0)+1
+            if(len(dct) == k):
+                temp  = 0
+                for l in dct:
+                    temp += dct[l]
+                maxlen = max(maxlen,temp)
+                j+=1
+            elif(len(dct) < k):
+                j+=1
+            elif(len(dct)>k):
+                while(len(dct)>k):
+                    dct[s[i]] = dct[s[i]]-1
+                    if(dct[s[i]] == 0):
+                        del dct[s[i]]
+                    i+=1
+                    
+                        
+                j +=1
+        return maxlen
