@@ -1,0 +1,26 @@
+a=set()
+i=0
+ans=0
+for j in range(len(s)):
+    if s[j] in a:
+        while s[j] in a:
+            a.remove(s[i])
+            i+=1
+    a.add(s[j])
+    ans=max(len(a),ans)
+return ans
+
+
+i = j = 0
+        arr = [0]*26
+        n = len(s)
+        maxlen = 0
+        while(j<n):
+            arr[ord(s[j])-ord('a')] += 1  
+            while(arr[ord(s[j])-ord('a')] > 1):
+                arr[ord(s[i])-ord('a')] -= 1
+                i+=1
+            maxlen = max((j-i+1),maxlen)
+            j+=1
+                
+        return maxlen
